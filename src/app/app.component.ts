@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from './services/users.service';
 import { Observable } from 'rxjs';
+import { GenresService } from './services/genres.service';
 
 @Component({
   selector: 'app-root',
@@ -9,21 +10,44 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent implements OnInit{
 
-  constructor(private readonly _userService: UsersService){}
+  constructor(
+    private readonly _userService: UsersService,
+    private readonly _genresService: GenresService
+  ){}
+
+  genres$!: Observable<any>
+  genres: any = []
+
 
   users$!: Observable<any>
+  users: any = []
 
   ngOnInit() {
     this.getUsers();
+    this.getGenres();
   }
 
 
-  getUsers() {
+  private getUsers() {
     this.users$ = this._userService.getUsers()
     return this.users$.subscribe((users) => {
-        console.log(users)
+        this.users = users;
+        console.log(this.users)
     });
   }
+
+
+  private getGenres(){
+    this.genres$ = this._genresService.getGenres()
+    return this.genres$.subscribe((genres) => {
+        this.genres = genres;
+        console.log(this.genres)
+    })
+
+
+  }
+
+
 
 
 
