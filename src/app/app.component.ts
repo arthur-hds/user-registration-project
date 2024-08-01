@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from './services/users.service';
 import { Observable } from 'rxjs';
 import { GenresService } from './services/genres.service';
+import { StatesService } from './services/states.service';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,13 @@ export class AppComponent implements OnInit{
 
   constructor(
     private readonly _userService: UsersService,
-    private readonly _genresService: GenresService
+    private readonly _genresService: GenresService,
+    private readonly _statesService: StatesService
   ){}
+
+  states$!: Observable<any>
+  states: any = []
+
 
   genres$!: Observable<any>
   genres: any = []
@@ -25,6 +31,7 @@ export class AppComponent implements OnInit{
   ngOnInit() {
     this.getUsers();
     this.getGenres();
+    this.getStates();
   }
 
 
@@ -42,6 +49,18 @@ export class AppComponent implements OnInit{
     return this.genres$.subscribe((genres) => {
         this.genres = genres;
         console.log(this.genres)
+    })
+
+
+  }
+
+
+  private getStates(){
+    this.states$ = this._statesService.getStates();
+    return this.states$.subscribe((states) => {
+      this.states = states
+      console.log(this.states)
+
     })
 
 
