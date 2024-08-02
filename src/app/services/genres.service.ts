@@ -1,12 +1,13 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { Genre } from "../types/genre.type";
 
 @Injectable({
     providedIn: "root"
 })
 export class GenresService {
 
-    private readonly genresListMock: any = [
+    private readonly genresListMock: Genre = [
         { id: 1, description: 'Rock' },
         { id: 2, description: 'Pop' },
         { id: 3, description: 'Jazz' },
@@ -30,7 +31,7 @@ export class GenresService {
     ]
 
 
-    getGenres(): Observable<any> {
+    getGenres(): Observable<Genre> {
 
         return new Observable((observer) => {
             setTimeout(() => {

@@ -3,6 +3,9 @@ import { UsersService } from './services/users.service';
 import { Observable } from 'rxjs';
 import { GenresService } from './services/genres.service';
 import { StatesService } from './services/states.service';
+import { State } from './types/state.type';
+import { Genre } from './types/genre.type';
+import { User } from './types/user.type';
 
 @Component({
   selector: 'app-root',
@@ -17,15 +20,15 @@ export class AppComponent implements OnInit{
     private readonly _statesService: StatesService
   ){}
 
-  states$!: Observable<any>
+  states$!: Observable<State>
   states: any = []
 
 
-  genres$!: Observable<any>
+  genres$!: Observable<Genre>
   genres: any = []
 
 
-  users$!: Observable<any>
+  users$!: Observable<User>
   users: any = []
 
   ngOnInit() {

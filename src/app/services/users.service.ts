@@ -1,12 +1,13 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { User } from "../types/user.type";
 
 @Injectable({
     providedIn: "root"
 })
 export class UsersService {
 
-    private readonly usersListMock: any = [
+    private readonly usersListMock: User = [
         {
             name: 'Usuário 1',
             username: 'usuario1',
@@ -49,7 +50,7 @@ export class UsersService {
     ]
 
 
-    getUsers() : Observable<any> {
+    getUsers() : Observable<User> {
 
         return new Observable((observer) => {
             setTimeout(() => {

@@ -1,12 +1,13 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { State } from "../types/state.type";
 
 @Injectable({
     providedIn: "root"
 })
 export class StatesService {
 
-    private readonly statesListMock: any = [
+    private readonly statesListMock: State = [
         { id: 12, descricao: 'Acre', descricaoContraida: 'AC' },
         { id: 27, descricao: 'Alagoas', descricaoContraida: 'AL' },
         { id: 16, descricao: 'Amapá', descricaoContraida: 'AP' },
@@ -36,7 +37,7 @@ export class StatesService {
         { id: 17, descricao: 'Tocantins', descricaoContraida: 'TO' }
     ]
 
-    getStates(): Observable<any> {
+    getStates(): Observable<State> {
 
         return new Observable((observer) => {
             setTimeout(() => {
