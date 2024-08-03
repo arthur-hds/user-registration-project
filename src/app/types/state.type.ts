@@ -1,3 +1,3 @@
-import { IState } from "../interfaces/user/state.interface";
+import { IState } from "../interfaces/state.interface";
 
 export type State = IState[];

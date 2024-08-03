@@ -1,0 +1,61 @@
+<mat-card>
+
+    <mat-card-content>
+
+        <form 
+            action=""
+            class="user-form"
+            >
+
+            <div class="user-form__row">
+
+                <mat-form-field class="user-form__item">
+
+                    <mat-label>
+                        Name:
+                    </mat-label>
+
+                    <input 
+                        type="text"
+                        name="nameInput"
+                        [(ngModel)] = "userSelected.name"
+                        matInput
+                        #NameInput="ngModel"
+                        required
+                    
+                    >
+
+                    <mat-hint>Fill the field above</mat-hint>
+                    <mat-error>It must contain at least 1 char</mat-error>
+
+
+                </mat-form-field>
+
+
+            
+
+            </div>
+
+
+            <div class="user-form__row">
+
+                <div class="user-form__item">
+                    <input type="text" style="width: 100%;">
+                </div>
+
+                <div class="user-form__item">
+                    <input type="text" style="width: 100%;">
+                </div>
+
+            </div>
+
+
+
+        </form>
+
+
+    </mat-card-content>
+
+
+
+</mat-card>

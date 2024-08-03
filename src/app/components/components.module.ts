@@ -6,13 +6,18 @@ import { AngularMaterialModule } from "../angular-material.module";
 import { BrowserModule } from "@angular/platform-browser";
 import { UserCardListComponent } from './user-card-list/user-card-list.component';
 import {MatCardModule} from '@angular/material/card';
+import { UserFormComponent } from './user-form/user-form.component';
+import { CommonModule } from "@angular/common";
+
 
 @NgModule({
     declarations: [
-    UserCardListComponent
+    UserCardListComponent,
+    UserFormComponent
   ],
     imports: [
         AngularMaterialModule,
+        CommonModule,
         BrowserModule,
         FormsModule,
         DirectivesModule,
@@ -20,7 +25,8 @@ import {MatCardModule} from '@angular/material/card';
         MatCardModule
     ],
     exports: [
-      UserCardListComponent
+      UserCardListComponent,
+      UserFormComponent
     ]
 })
 export class ComponentsModule {

@@ -56,7 +56,7 @@ export class UsersService {
             setTimeout(() => {
                 observer.next(this.usersListMock);
                 observer.complete();
-            }, 3000);
+            }, 1000);
         })
 
     }

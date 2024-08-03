@@ -6,6 +6,7 @@ import { StatesService } from './services/states.service';
 import { State } from './types/state.type';
 import { Genre } from './types/genre.type';
 import { User } from './types/user.type';
+import { IUser } from './interfaces/user/user.interface';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,11 @@ export class AppComponent implements OnInit{
     private readonly _genresService: GenresService,
     private readonly _statesService: StatesService
   ){}
+
+  userSelected: IUser = {} as IUser;
+  userSelectedIndex: number | undefined;
+
+
 
   states$!: Observable<State>
   states: any = []
@@ -66,6 +72,23 @@ export class AppComponent implements OnInit{
 
     })
 
+
+  }
+
+
+
+
+  onUserSelected(index: number){
+    
+    const userFounded = this.users[index]
+    
+    if( !!(userFounded) ){
+      
+      this.userSelectedIndex = index;
+      this.userSelected = structuredClone(userFounded)
+
+
+    }
 
   }
 
