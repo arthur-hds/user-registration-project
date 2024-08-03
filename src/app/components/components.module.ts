@@ -4,17 +4,24 @@ import { DirectivesModule } from "../directives/directives.module";
 import { PipesModule } from "../pipes/pipes.module";
 import { AngularMaterialModule } from "../angular-material.module";
 import { BrowserModule } from "@angular/platform-browser";
+import { UserCardListComponent } from './user-card-list/user-card-list.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
-    declarations: [],
+    declarations: [
+    UserCardListComponent
+  ],
     imports: [
         AngularMaterialModule,
         BrowserModule,
         FormsModule,
         DirectivesModule,
-        PipesModule
+        PipesModule,
+        MatCardModule
     ],
-    exports: []
+    exports: [
+      UserCardListComponent
+    ]
 })
 export class ComponentsModule {
 

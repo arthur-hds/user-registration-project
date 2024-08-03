@@ -1,0 +1,17 @@
+.user{
+
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    
+    gap: 10rem;
+
+    &__cards{
+        
+        width: 50%;
+        cursor: pointer;
+        
+    }
+
+
+}
