@@ -39,13 +39,56 @@
 
             <div class="user-form__row">
 
-                <div class="user-form__item">
-                    <input type="text" style="width: 100%;">
-                </div>
+                <mat-form-field class="user-form__item">
 
-                <div class="user-form__item">
-                    <input type="text" style="width: 100%;">
-                </div>
+                    <mat-label>
+                        Usuário:
+                    </mat-label>
+
+
+                    <input 
+                        type="text"
+                        name="userInput"
+                        matInput
+                        [(ngModel)] = "userSelected.username"
+                        #UserInput = "ngModel"
+                        required
+                        
+                        >
+                    <mat-hint>The user will be used to login</mat-hint>
+                    <mat-error>User must be informed</mat-error>
+
+
+
+                </mat-form-field>
+
+
+
+                <mat-form-field class="user-form__item">
+
+                    <mat-label>
+                        Email:
+                    </mat-label>
+
+
+                    <input 
+                        type="text"
+                        name="emailInput"
+                        matInput
+                        appEmailInputValidator
+                        [(ngModel)] = "userSelected.email"
+                        #UserInput = "ngModel"
+                        required
+                        
+                        >
+                    <mat-hint>Fill the field with an email</mat-hint>
+                    <mat-error *ngIf="UserInput.hasError('required')">An email must be informed</mat-error>
+                    <mat-error *ngIf="UserInput.hasError('invalidEmail') && !UserInput.hasError('required')">This email is invalid, please type another</mat-error>
+    
+
+
+
+                </mat-form-field>
 
             </div>
 
