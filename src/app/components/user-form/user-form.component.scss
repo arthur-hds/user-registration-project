@@ -19,3 +19,24 @@
     }
 
 }
+
+.weak-password{
+    ::ng-deep &.mat-mdc-progress-bar.mat-primary{
+        --mdc-linear-progress-active-indicator-color: #c30010
+    }
+
+}
+
+.medium-password{
+    ::ng-deep &.mat-mdc-progress-bar.mat-primary{
+        --mdc-linear-progress-active-indicator-color: #FFFF00
+    }
+    
+}
+
+.strong-password{
+    ::ng-deep &.mat-mdc-progress-bar.mat-primary{
+        --mdc-linear-progress-active-indicator-color: #AAFF00
+    }
+    
+}

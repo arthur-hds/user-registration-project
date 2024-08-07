@@ -123,6 +123,11 @@
                     <mat-progress-bar 
                         mode="determinate"
                         [value]="passwordValue"
+                        [ngClass]="{
+                            'weak-password': passwordValue === 0 || passwordValue === 30,
+                            'medium-password': passwordValue === 60,
+                            'strong-password': passwordValue === 100
+                        }"
                     >
                     </mat-progress-bar>
 
