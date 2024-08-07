@@ -8,6 +8,7 @@ import { UserCardListComponent } from './user-card-list/user-card-list.component
 import {MatCardModule} from '@angular/material/card';
 import { UserFormComponent } from './user-form/user-form.component';
 import { CommonModule } from "@angular/common";
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CommonModule } from "@angular/common";
         FormsModule,
         DirectivesModule,
         PipesModule,
-        MatCardModule
+        MatCardModule,
+        MatProgressBarModule
     ],
     exports: [
       UserCardListComponent,

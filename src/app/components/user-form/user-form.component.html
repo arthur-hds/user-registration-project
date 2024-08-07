@@ -98,6 +98,44 @@
             </div>
 
 
+            <div class="user-form__row">
+
+                <mat-form-field class="user-form__item">
+
+                    <mat-label>
+                        Password:
+                    </mat-label>
+
+
+                    <input 
+                        type="password"
+                        name="passwordInput"
+                        matInput
+                        [(ngModel)] = "userSelected.password"
+                        (ngModelChange) = "onPasswordChange($event)"
+                        [ngModelOptions] = "{ updateOn: 'change'}"
+                        #PasswordFormControl = "ngModel"
+                        appPasswordStrengthValidator
+                        required
+                    
+                    >
+
+                    <mat-progress-bar 
+                        mode="determinate"
+                        [value]="passwordValue"
+                    >
+                    </mat-progress-bar>
+
+
+                    <mat-hint>Inform a strong password</mat-hint>
+                    <mat-error *ngIf="PasswordFormControl.hasError('required')">Please type a password</mat-error>
+                    <mat-error *ngIf="PasswordFormControl.hasError('invalidPassword')">Please type <strong>stronger</strong> password</mat-error>
+
+                </mat-form-field>
+
+            </div>
+
+
 
         </form>
 
