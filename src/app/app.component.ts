@@ -7,6 +7,8 @@ import { State } from './types/state.type';
 import { Genre } from './types/genre.type';
 import { User } from './types/user.type';
 import { IUser } from './interfaces/user/user.interface';
+import { UserPlaceholderResponse } from './types/user-placeholder-response.type';
+import { UsersPlaholderService } from './services/users-placeholder.service';
 
 @Component({
   selector: 'app-root',
@@ -27,20 +29,23 @@ export class AppComponent implements OnInit{
 
 
   states$!: Observable<State>
-  states: any = []
+  states: State = []
 
 
   genres$!: Observable<Genre>
-  genres: any = []
+  genres: Genre = []
 
 
   users$!: Observable<User>
-  users: any = []
+  users: User = []
+
+
 
   ngOnInit() {
     this.getUsers();
     this.getGenres();
     this.getStates();
+
   }
 
 
@@ -74,6 +79,9 @@ export class AppComponent implements OnInit{
 
 
   }
+
+
+
 
 
 

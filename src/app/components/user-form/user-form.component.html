@@ -50,7 +50,9 @@
                         type="text"
                         name="userInput"
                         matInput
+                        [appCredentialsValidator]="'username'"
                         [(ngModel)] = "userSelected.username"
+                        [ngModelOptions] = "{ updateOn: 'blur' }"
                         #UserInput = "ngModel"
                         required
                         
@@ -76,15 +78,18 @@
                         name="emailInput"
                         matInput
                         appEmailInputValidator
+                        [appCredentialsValidator]="'email'"
                         [(ngModel)] = "userSelected.email"
-                        #UserInput = "ngModel"
+                        [ngModelOptions] = "{ updateOn: 'blur' }"
+                        #EmailInput = "ngModel"
                         required
                         
                         >
                     <mat-hint>Fill the field with an email</mat-hint>
-                    <mat-error *ngIf="UserInput.hasError('required')">An email must be informed</mat-error>
-                    <mat-error *ngIf="UserInput.hasError('invalidEmail') && !UserInput.hasError('required')">This email is invalid, please type another</mat-error>
-    
+                    
+                    <mat-error *ngIf="EmailInput.hasError('required')">An email must be informed</mat-error>
+                    <mat-error *ngIf="EmailInput.hasError('invalidEmail') && !EmailInput.hasError('required')">This email is invalid, please type another</mat-error>
+                    <mat-error *ngIf="EmailInput.hasError('invalidAlreadyEmail') && !EmailInput.hasError('required')">This email is already being used, please type another</mat-error>
 
 
 

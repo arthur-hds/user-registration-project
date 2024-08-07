@@ -1,13 +1,16 @@
 import { NgModule } from "@angular/core";
-import { EmailInputValidator } from "./email-input-validator.directive";
+import { EmailInputValidatorDirective } from "./email-input-validator.directive";
+import { CredentialsValidatorDirective } from "./credentials-validator.directive";
 
 @NgModule({
 
     declarations: [
-        EmailInputValidator
+        EmailInputValidatorDirective,
+        CredentialsValidatorDirective
     ],
     exports: [
-        EmailInputValidator
+        EmailInputValidatorDirective,
+        CredentialsValidatorDirective
     ]
 })
 export class DirectivesModule {
