@@ -5,6 +5,8 @@
         <form 
             action=""
             class="user-form"
+            #userForm = "ngForm"
+            appPasswordConfirmationValidator
             >
 
             <div class="user-form__row">
@@ -137,6 +139,34 @@
                     <mat-error *ngIf="PasswordFormControl.hasError('invalidPassword')">Please type <strong>stronger</strong> password</mat-error>
 
                 </mat-form-field>
+
+
+
+                <mat-form-field class="user-form__item">
+
+                    <mat-label>
+                        Cofirm password:
+                    </mat-label>
+
+                    <input 
+                        type="text"
+                        name="ConfirmPasswordInput"
+                        matInput
+                        ngModel
+                        [ngModelOptions] = "{ updateOn: 'change'}"
+                        #ConfirmPasswordFormControl = "ngModel"
+                        required
+
+
+                    >
+
+                    <mat-hint>Confirm the password</mat-hint>
+                    <mat-error *ngIf="ConfirmPasswordFormControl.hasError('required')">The password confirmation must be informed</mat-error>
+                    <mat-error *ngIf="ConfirmPasswordFormControl.hasError('appPasswordConfirmationValidator') && !ConfirmPasswordFormControl.hasError('required')">The password needs to be the same as the typed before</mat-error>
+
+                </mat-form-field>
+
+
 
             </div>
 
