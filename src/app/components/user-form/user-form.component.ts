@@ -1,16 +1,23 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, LOCALE_ID, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Genre } from '../../types/genre.type';
 import { User } from '../../types/user.type';
 import { IUser } from '../../interfaces/user/user.interface';
 import { State } from '../../types/state.type';
 import { getPasswordValue } from '../utils/get-password-strength-value';
 
+
 @Component({
   selector: 'app-user-form',
   templateUrl: './user-form.component.html',
-  styleUrl: './user-form.component.scss'
+  styleUrl: './user-form.component.scss',
+  
 })
-export class UserFormComponent implements OnChanges{
+export class UserFormComponent implements OnChanges, OnInit{
+
+  minDate: Date | null = null;
+
+  maxDate: Date | null = null;
+
 
   @Input("genresList")
   genresList: Genre = [];
@@ -44,6 +51,15 @@ export class UserFormComponent implements OnChanges{
   }
 
 
+  
+  private setDefaultToDatePicker(){
+    this.minDate = new Date(new Date().getFullYear() - 100, 0, 1)
+    this.maxDate = new Date()
+  }
+
+  ngOnInit(){
+    this.setDefaultToDatePicker()
+  }
 
 
 

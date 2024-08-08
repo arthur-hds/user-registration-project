@@ -22,9 +22,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
         BrowserModule,
         FormsModule,
         DirectivesModule,
-        PipesModule,
-        MatCardModule,
-        MatProgressBarModule
+        PipesModule
+        
     ],
     exports: [
       UserCardListComponent,
