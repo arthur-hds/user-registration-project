@@ -23,6 +23,9 @@ export class UserFormComponent implements OnChanges, OnInit{
 
   userDate: Date | null = null;
 
+  displayedColumns = ["title", "band", "genre", "favorite"]
+
+
 
   @Input("genresList")
   genresList: Genre = [];
