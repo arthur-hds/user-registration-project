@@ -59,8 +59,6 @@ export class UserFormComponent implements OnChanges, OnInit{
     if(!event.value){
       return;
     }
-
-
     this.userSelected.birthDate = convertDateObjToPtBr(event.value);
     console.log(this.userSelected.birthDate)
 

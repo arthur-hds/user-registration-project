@@ -203,6 +203,32 @@
 
                 </mat-form-field>
 
+
+                <mat-form-field class="user-form__item">
+
+                    <mat-label>States:</mat-label>
+                    <mat-select
+                        name="StatesSelectInput"
+                        [(ngModel)] = "userSelected.state"
+                        required
+
+                    >
+
+                        <mat-option
+                            *ngFor="let state of statesList"
+                            [value]="state.id"
+                            >
+                            {{ state.descricao }}
+                        </mat-option>
+
+                    </mat-select>
+
+                    <mat-hint>Select a state</mat-hint>
+                    <mat-error>A valid state must be informed</mat-error>
+
+                    
+                </mat-form-field>
+
             </div>
 
 
