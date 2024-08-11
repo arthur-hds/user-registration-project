@@ -25,6 +25,7 @@ export class UserFormComponent implements OnChanges, OnInit{
 
   displayedColumns = ["title", "band", "genre", "favorite"]
 
+  filteredGenreList: Genre = [];
 
 
   @Input("genresList")
@@ -48,9 +49,32 @@ export class UserFormComponent implements OnChanges, OnInit{
     if(USER_CHANGED){
       this.onPasswordChange(this.userSelected.password)
       this.setDateToDatepicker(this.userSelected.birthDate);
+      this.filteredGenreList = this.genresList;
     }
 
   }
+
+  displayFn(genreId: number): string  {
+    const genreFound = this.genresList.find(genre => genre.id === genreId);
+    return genreFound ? genreFound.description : '';
+
+
+  }
+
+
+  filterGenre(genreInput: string) {
+
+    if(typeof genreInput === "number") return;
+
+    const genreInputLower = genreInput.toLowerCase();
+    this.filteredGenreList = this.genresList.filter(
+      genre => genre.description.toLowerCase().includes(genreInputLower)
+    )
+
+
+
+  }
+
 
 
   private setDateToDatepicker(birthDate: string) {

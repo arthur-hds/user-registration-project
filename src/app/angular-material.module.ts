@@ -10,6 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
     imports: [
@@ -23,7 +24,8 @@ import { MatTableModule } from '@angular/material/table';
         MatSelectModule,
         MatListModule,
         MatDividerModule,
-        MatTableModule
+        MatTableModule,
+        MatAutocompleteModule
     ],
     exports: [
         MatFormFieldModule,
@@ -36,7 +38,8 @@ import { MatTableModule } from '@angular/material/table';
         MatSelectModule,
         MatListModule,
         MatDividerModule,
-        MatTableModule
+        MatTableModule,
+        MatAutocompleteModule
     ]
 })
 export class AngularMaterialModule {
