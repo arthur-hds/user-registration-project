@@ -7,6 +7,7 @@
             class="user-form"
             #userForm = "ngForm"
             appPasswordConfirmationValidator
+            (ngSubmit)="onFormSubmit(userForm)"
             >
 
             <div class="user-form__row">
@@ -371,6 +372,11 @@
                 </div>
 
 
+            </div>
+
+
+            <div class="user-form__row user-form__button-container">
+                <button type="submit" mat-raised-button color="primary">Save</button>
             </div>
 
 

@@ -1,4 +1,4 @@
-import { Component, Input, LOCALE_ID, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, ElementRef, Input, LOCALE_ID, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Genre } from '../../types/genre.type';
 import { User } from '../../types/user.type';
 import { IUser } from '../../interfaces/user/user.interface';
@@ -7,6 +7,7 @@ import { getPasswordValue } from '../utils/get-password-strength-value';
 import { convertDateToPtBrDatepicker } from '../utils/convert-date-to-pt-br-datepicker';
 import { convertDateObjToPtBr } from '../utils/convert-date-obj-to-pt-br';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -16,6 +17,10 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
   
 })
 export class UserFormComponent implements OnChanges, OnInit{
+
+
+  constructor(private readonly _el: ElementRef){}
+
 
   minDate: Date | null = null;
 
@@ -53,6 +58,42 @@ export class UserFormComponent implements OnChanges, OnInit{
     }
 
   }
+
+  onFormSubmit(form: NgForm){
+    console.log(form)
+    if(form.invalid){
+      this.onFormSubmitInvalid(form);
+
+      return;
+    }
+
+
+  }
+
+
+  private onFormSubmitInvalid(form: NgForm){
+    const keys = Object.keys(form.controls);
+
+    for(const control of keys){
+      const IS_CONTROL_INVALID = form.controls[control].invalid;
+
+      if(IS_CONTROL_INVALID){
+        const invalidElement: HTMLElement = this._el.nativeElement.querySelector(`[name=${control}]`);
+        
+        invalidElement.focus();
+
+        break;
+      }
+
+      
+
+
+
+    }
+
+
+  }
+
 
   isAnyCheckboxChecked(){
     return this.userSelected.musics.some(music => music.isFavorite);
