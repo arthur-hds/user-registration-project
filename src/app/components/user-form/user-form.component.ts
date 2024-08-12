@@ -54,6 +54,14 @@ export class UserFormComponent implements OnChanges, OnInit{
 
   }
 
+  isAnyCheckboxChecked(){
+    return this.userSelected.musics.some(music => music.isFavorite);
+
+
+  }
+
+
+
   displayFn(genreId: number): string  {
     const genreFound = this.genresList.find(genre => genre.id === genreId);
     return genreFound ? genreFound.description : '';

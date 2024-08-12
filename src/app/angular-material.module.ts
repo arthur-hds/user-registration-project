@@ -11,6 +11,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
+
 
 @NgModule({
     imports: [
@@ -25,7 +28,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
         MatListModule,
         MatDividerModule,
         MatTableModule,
-        MatAutocompleteModule
+        MatAutocompleteModule,
+        MatCheckboxModule
     ],
     exports: [
         MatFormFieldModule,
@@ -39,7 +43,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
         MatListModule,
         MatDividerModule,
         MatTableModule,
-        MatAutocompleteModule
+        MatAutocompleteModule,
+        MatCheckboxModule
     ]
 })
 export class AngularMaterialModule {
