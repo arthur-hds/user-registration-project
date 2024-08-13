@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, LOCALE_ID, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, LOCALE_ID, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Genre } from '../../types/genre.type';
 import { User } from '../../types/user.type';
 import { IUser } from '../../interfaces/user/user.interface';
@@ -42,6 +42,9 @@ export class UserFormComponent implements OnChanges, OnInit{
   @Input("statesList")
   statesList: State = [];
 
+  @Output("onFormSubmit")
+  formSubmit = new EventEmitter<void>();
+
 
   passwordValue: number = 0;
 
@@ -60,13 +63,14 @@ export class UserFormComponent implements OnChanges, OnInit{
   }
 
   onFormSubmit(form: NgForm){
-    console.log(form)
+
     if(form.invalid){
       this.onFormSubmitInvalid(form);
 
       return;
     }
 
+    this.formSubmit.emit();
 
   }
 

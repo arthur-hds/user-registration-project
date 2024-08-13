@@ -9,12 +9,14 @@ import {MatCardModule} from '@angular/material/card';
 import { UserFormComponent } from './user-form/user-form.component';
 import { CommonModule } from "@angular/common";
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { UserBeforeAndAfterDialogComponent } from './user-before-and-after-dialog/user-before-and-after-dialog.component';
 
 
 @NgModule({
     declarations: [
     UserCardListComponent,
-    UserFormComponent
+    UserFormComponent,
+    UserBeforeAndAfterDialogComponent
   ],
     imports: [
         AngularMaterialModule,
