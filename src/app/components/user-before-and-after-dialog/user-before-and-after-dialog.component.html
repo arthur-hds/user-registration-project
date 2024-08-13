@@ -12,10 +12,73 @@
 
 
         <div class="infos__row">
-            <div class="infos__item"></div>
-            <div class="infos__item"></div>
+            <div class="infos__item">Name: {{ data.originalUser.name }}</div>
+            <div class="infos__item">Name: {{ data.changedUser.name }}</div>
 
         </div>
+
+
+
+        <div class="infos__row">
+            <div class="infos__item">Username: {{ data.originalUser.username }}</div>
+            <div class="infos__item">Username: {{ data.changedUser.username }}</div>
+        </div>
+
+
+        <div class="infos__row">
+            <div class="infos__item">Email: {{ data.originalUser.email }}</div>
+            <div class="infos__item">Email: {{ data.changedUser.email }}</div>
+        </div>
+
+
+        <div class="infos__row">
+            <div class="infos__item">BirthDate: {{ data.originalUser.birthDate }}</div>
+            <div class="infos__item">BirthDate: {{ data.changedUser.birthDate }}</div>
+        </div>
+
+
+        <div class="infos__row">
+            <div class="infos__item">State: {{ data.originalUser.state }}</div>
+            <div class="infos__item">State: {{ data.changedUser.state }}</div>
+
+        </div>
+
+
+        <ng-container  *ngFor="let music of data.originalUser.musics; let i = index">
+
+            <div class="infos__row" >
+
+                <div class="infos__item">Music - {{ i + 1 }} - Title - {{ i + 1 }}:  {{ music.title }}</div>
+                <div class="infos__item">Music - {{ i + 1 }} - Title - {{ i + 1 }}: {{ data.changedUser.musics[i].title }}</div>
+    
+            </div>
+
+            <div class="infos__row" >
+
+                <div class="infos__item">Music - {{ i + 1 }} - Band - {{ i + 1 }}: {{ music.band }}</div>
+                <div class="infos__item">Music - {{ i + 1 }} - Band - {{ i + 1 }}: {{ data.changedUser.musics[i].band }}</div>
+    
+            </div>
+
+            <div class="infos__row">
+
+                <div class="infos__item">Music - {{ i + 1 }} - Genre - {{ i + 1 }}: {{ music.genre }}</div>
+                <div class="infos__item">Music - {{ i + 1 }} - Genre - {{ i + 1 }}: {{ data.changedUser.musics[i].genre }}</div>
+    
+            </div>
+
+
+            <div class="infos__row">
+
+                <div class="infos__item">Music - {{ i + 1 }} - IsFavorite - {{ i + 1 }}: {{ music.isFavorite }}</div>
+                <div class="infos__item">Music - {{ i + 1 }} - IsFavorite - {{ i + 1 }}: {{ data.changedUser.musics[i].isFavorite }}</div>
+    
+            </div>
+
+
+            
+
+        </ng-container>
 
     </div>
 
@@ -25,6 +88,6 @@
 <mat-dialog-actions>
 
     <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-raised-button color="primary">Save</button>
+    <button mat-raised-button color="primary" mat-dialog-close>Save</button>
 
 </mat-dialog-actions>

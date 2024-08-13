@@ -28,6 +28,9 @@
     }
 
     
+    &__row &__item:not(&__header):nth-child(2){
+        border-left: 1px solid white;
+    }
 
 
 }
