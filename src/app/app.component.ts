@@ -7,8 +7,10 @@ import { State } from './types/state.type';
 import { Genre } from './types/genre.type';
 import { User } from './types/user.type';
 import { IUser } from './interfaces/user/user.interface';
+import { MatDialog } from '@angular/material/dialog'
 import { UserPlaceholderResponse } from './types/user-placeholder-response.type';
 import { UsersPlaholderService } from './services/users-placeholder.service';
+import { UserBeforeAndAfterDialogComponent } from './components/user-before-and-after-dialog/user-before-and-after-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +22,8 @@ export class AppComponent implements OnInit{
   constructor(
     private readonly _userService: UsersService,
     private readonly _genresService: GenresService,
-    private readonly _statesService: StatesService
+    private readonly _statesService: StatesService,
+    private readonly _matDialog: MatDialog
   ){}
 
   userSelected: IUser = {} as IUser;
@@ -100,6 +103,31 @@ export class AppComponent implements OnInit{
 
   }
 
+
+  onFormSubmit(){
+
+    if( this.userSelectedIndex === undefined) return;
+
+    const originalUser = this.users[this.userSelectedIndex]
+
+    this.openBeforeAndAfterDialog(originalUser, this.userSelected);
+  }
+
+
+  openBeforeAndAfterDialog(originalUser: IUser, changedUser: IUser) {
+
+    this._matDialog.open(UserBeforeAndAfterDialogComponent, {
+      data: {
+        originalUser,
+        changedUser
+
+      },
+      minWidth: '70%',
+      
+
+    })
+
+  }
 
 
 
