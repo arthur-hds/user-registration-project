@@ -110,13 +110,13 @@ export class AppComponent implements OnInit{
 
     const originalUser = this.users[this.userSelectedIndex]
 
-    this.openBeforeAndAfterDialog(originalUser, this.userSelected);
+    this.openBeforeAndAfterDialog(originalUser, this.userSelected, this.userSelectedIndex);
   }
 
 
-  openBeforeAndAfterDialog(originalUser: IUser, changedUser: IUser) {
+  openBeforeAndAfterDialog(originalUser: IUser, changedUser: IUser, userSelectedIndex: number) {
 
-    this._matDialog.open(UserBeforeAndAfterDialogComponent, {
+    const userSaveAndCloseDialog = this._matDialog.open(UserBeforeAndAfterDialogComponent, {
       data: {
         originalUser,
         changedUser
@@ -126,6 +126,15 @@ export class AppComponent implements OnInit{
       
 
     })
+    
+    userSaveAndCloseDialog.afterClosed().subscribe((result) => {
+
+      if(result){
+        this.users[userSelectedIndex] = structuredClone(changedUser);
+      }
+
+    })
+
 
   }
 
