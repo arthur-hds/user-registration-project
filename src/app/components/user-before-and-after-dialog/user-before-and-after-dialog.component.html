@@ -38,8 +38,8 @@
 
 
         <div class="infos__row">
-            <div class="infos__item">State: {{ data.originalUser.state }}</div>
-            <div class="infos__item">State: {{ data.changedUser.state }}</div>
+            <div class="infos__item">State: {{ data.originalUser.state | state | async}}</div>
+            <div class="infos__item">State: {{ data.changedUser.state | state | async}}</div>
 
         </div>
 
@@ -62,16 +62,16 @@
 
             <div class="infos__row">
 
-                <div class="infos__item">Music - {{ i + 1 }} - Genre - {{ i + 1 }}: {{ music.genre }}</div>
-                <div class="infos__item">Music - {{ i + 1 }} - Genre - {{ i + 1 }}: {{ data.changedUser.musics[i].genre }}</div>
+                <div class="infos__item">Music - {{ i + 1 }} - Genre - {{ i + 1 }}: {{ music.genre | genre | async}}</div>
+                <div class="infos__item">Music - {{ i + 1 }} - Genre - {{ i + 1 }}: {{ data.changedUser.musics[i].genre | genre | async}}</div>
     
             </div>
 
 
             <div class="infos__row">
 
-                <div class="infos__item">Music - {{ i + 1 }} - IsFavorite - {{ i + 1 }}: {{ music.isFavorite }}</div>
-                <div class="infos__item">Music - {{ i + 1 }} - IsFavorite - {{ i + 1 }}: {{ data.changedUser.musics[i].isFavorite }}</div>
+                <div class="infos__item">Music - {{ i + 1 }} - IsFavorite - {{ i + 1 }}: {{ music.isFavorite | isFavorite}}</div>
+                <div class="infos__item">Music - {{ i + 1 }} - IsFavorite - {{ i + 1 }}: {{ data.changedUser.musics[i].isFavorite | isFavorite}}</div>
     
             </div>
 
