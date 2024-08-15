@@ -69,12 +69,12 @@ export class UserFormComponent implements OnChanges, OnInit{
 
       return;
     }
-
-    this.formSubmit.emit();
+    
+    this.formSubmit.emit(); //If it passes all the checks, it sends an alert so the application component shows a modal dialog box
 
   }
 
-
+  //Method that focus on invalid fields
   private onFormSubmitInvalid(form: NgForm){
     const keys = Object.keys(form.controls);
 
@@ -99,6 +99,7 @@ export class UserFormComponent implements OnChanges, OnInit{
   }
 
 
+  //Shows if there is any checkbox already clicked
   isAnyCheckboxChecked(){
     return this.userSelected.musics.some(music => music.isFavorite);
 
@@ -107,6 +108,7 @@ export class UserFormComponent implements OnChanges, OnInit{
 
 
 
+  //Method that shows the respective genre value by id
   displayFn(genreId: number): string  {
     const genreFound = this.genresList.find(genre => genre.id === genreId);
     return genreFound ? genreFound.description : '';
@@ -144,7 +146,7 @@ export class UserFormComponent implements OnChanges, OnInit{
 
   }
 
-
+  //Method to update the color and status of password's progress bar
   onPasswordChange(password: string){
     this.passwordValue = getPasswordValue(password);
 

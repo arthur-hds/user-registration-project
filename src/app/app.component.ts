@@ -114,6 +114,8 @@ export class AppComponent implements OnInit{
   }
 
 
+
+  //Set the component to be showed as a dialog modal
   openBeforeAndAfterDialog(originalUser: IUser, changedUser: IUser, userSelectedIndex: number) {
 
     const userSaveAndCloseDialog = this._matDialog.open(UserBeforeAndAfterDialogComponent, {
@@ -127,6 +129,7 @@ export class AppComponent implements OnInit{
 
     })
     
+    //Catches the 'true' if clicked at save button and updates the user
     userSaveAndCloseDialog.afterClosed().subscribe((result) => {
 
       if(result){
