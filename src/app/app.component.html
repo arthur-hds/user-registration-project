@@ -5,6 +5,7 @@
 
 
 <app-user-form
+    *ngIf="userSelectedIndex !== undefined"
     [genresList]="genres"
     [userSelected]="userSelected"
     [statesList]="states"
