@@ -51,7 +51,7 @@ export class UserFormComponent implements OnChanges, OnInit{
 
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes)
+    
     const USER_CHANGED = changes['userSelected']
 
     if(USER_CHANGED){
@@ -142,7 +142,6 @@ export class UserFormComponent implements OnChanges, OnInit{
       return;
     }
     this.userSelected.birthDate = convertDateObjToPtBr(event.value);
-    console.log(this.userSelected.birthDate)
 
   }
 

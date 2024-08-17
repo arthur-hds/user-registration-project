@@ -56,7 +56,6 @@ export class AppComponent implements OnInit{
     this.users$ = this._userService.getUsers()
     return this.users$.subscribe((users) => {
         this.users = users;
-        console.log(this.users)
     });
   }
 
@@ -65,7 +64,6 @@ export class AppComponent implements OnInit{
     this.genres$ = this._genresService.getGenres()
     return this.genres$.subscribe((genres) => {
         this.genres = genres;
-        console.log(this.genres)
     })
 
 
@@ -76,7 +74,6 @@ export class AppComponent implements OnInit{
     this.states$ = this._statesService.getStates();
     return this.states$.subscribe((states) => {
       this.states = states
-      console.log(this.states)
 
     })
 
